@@ -45,8 +45,8 @@ const FeaturesTiles = ({
   );
 
   const sectionHeader = {
-    title: 'Build up the whole picture',
-    paragraph: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.'
+    title: "Languages and Tools",
+    paragraph: "I'm always driven to build beautiful, secure and easy scalable applications, that enable people to do what they do best!"
   };
 
   return (
@@ -64,7 +64,7 @@ const FeaturesTiles = ({
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
                     <Image
-                      src={require('./../../assets/images/feature-tile-icon-01.svg')}
+                      src={require('./../../assets/images/React-icon.svg')}
                       alt="Features tile icon 01"
                       width={64}
                       height={64} />
@@ -75,8 +75,9 @@ const FeaturesTiles = ({
                     React
                     </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
+                  React makes it painless to design simple views for each state in an application, 
+                  and React efficiently update and render the right components when data changes.
+                  </p>
                 </div>
               </div>
             </div>
@@ -86,7 +87,7 @@ const FeaturesTiles = ({
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
                     <Image
-                      src={require('./../../assets/images/feature-tile-icon-02.svg')}
+                      src={require('./../../assets/images/javascript.svg')}
                       alt="Features tile icon 02"
                       width={64}
                       height={64} />
@@ -97,7 +98,7 @@ const FeaturesTiles = ({
                     JavaScript
                     </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                  A prototype-based, multi-paradigm, single-threaded, dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.
                     </p>
                 </div>
               </div>
@@ -108,7 +109,7 @@ const FeaturesTiles = ({
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
                     <Image
-                      src={require('./../../assets/images/feature-tile-icon-03.svg')}
+                      src={require('./../../assets/images/gql.svg')}
                       alt="Features tile icon 03"
                       width={64}
                       height={64} />
@@ -119,7 +120,7 @@ const FeaturesTiles = ({
                     GraphQL
                     </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                  A query language for APIs and a runtime for fulfilling those queries with your existing data.
                     </p>
                 </div>
               </div>
@@ -130,7 +131,7 @@ const FeaturesTiles = ({
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
                     <Image
-                      src={require('./../../assets/images/feature-tile-icon-04.svg')}
+                      src={require('./../../assets/images/mongodb.svg')}
                       alt="Features tile icon 04"
                       width={64}
                       height={64} />
@@ -141,7 +142,7 @@ const FeaturesTiles = ({
                     MongoDB
                     </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                  A cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema.
                     </p>
                 </div>
               </div>
@@ -152,7 +153,7 @@ const FeaturesTiles = ({
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
                     <Image
-                      src={require('./../../assets/images/feature-tile-icon-05.svg')}
+                      src={require('./../../assets/images/Node.js_logo.svg')}
                       alt="Features tile icon 05"
                       width={64}
                       height={64} />
@@ -163,7 +164,7 @@ const FeaturesTiles = ({
                     Node.js
                     </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                  An open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a web browser.
                     </p>
                 </div>
               </div>
@@ -174,7 +175,7 @@ const FeaturesTiles = ({
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
                     <Image
-                      src={require('./../../assets/images/feature-tile-icon-06.svg')}
+                      src={require('./../../assets/images/aws.svg')}
                       alt="Features tile icon 06"
                       width={64}
                       height={64} />
@@ -185,7 +186,7 @@ const FeaturesTiles = ({
                     AWS
                     </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                  Cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis.
                     </p>
                 </div>
               </div>

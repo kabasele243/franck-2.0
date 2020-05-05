@@ -79,10 +79,10 @@ const FeaturesSplit = ({
                  </p>
 
                   <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="https://cruip.com/">
+                  <Button tag="a" color="primary" wideMobile href="https://mytravelapp.netlify.app/">
                     Live 
                     </Button>
-                  <Button tag="a" color="dark" wideMobile href="https://github.com/cruip/open-react-template/">
+                  <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/mytravelapp">
                     View on Github
                     </Button>
                 </ButtonGroup>
@@ -113,10 +113,10 @@ const FeaturesSplit = ({
                  Kenashop is a full stack web application for a ecommerce store, that allow user to search for article, checkout and buy online.
                  </p>
                   <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="https://cruip.com/">
+                  <Button tag="a" color="primary" wideMobile href="https://kenashop.netlify.app/">
                     Live
                     </Button>
-                  <Button tag="a" color="dark" wideMobile href="https://github.com/cruip/open-react-template/">
+                  <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/kenashop">
                     View on Github
                     </Button>
                 </ButtonGroup>
@@ -164,6 +164,73 @@ const FeaturesSplit = ({
                 <Image
                   src={require('./../../assets/images/gf.png')}
                   alt="Features split 03"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
+                {/* <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  Lightning fast workflow
+                  </div> */}
+                <h3 className="mt-0 mb-12">
+                  Nubia
+                  </h3>
+                <p className="m-0 mb-12">
+                 A static website for a storytelling application with a beautifull interface and design
+                 </p>
+                  <ButtonGroup>
+                  <Button tag="a" color="primary" wideMobile href="https://nubia-site.netlify.app">
+                    Live
+                    </Button>
+                  <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/nubia">
+                    View on Github
+                    </Button>
+                </ButtonGroup>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/nubia.PNG')}
+                  alt="Features split 02"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
+                {/* <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  Lightning fast workflow
+                  </div> */}
+                <h3 className="mt-0 mb-12">
+                  Adili
+                  </h3>
+                <p className="m-0 mb-12">
+                 A static website for a real state agency application with a beautifull interface and design
+                 </p>
+                  <ButtonGroup>
+                  <Button tag="a" color="primary" wideMobile href="https://adili.netlify.app/">
+                    Live
+                    </Button>
+                  <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/adili">
+                    View on Github
+                    </Button>
+                </ButtonGroup>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/adili.PNG')}
+                  alt="Features split 02"
                   width={528}
                   height={396} />
               </div>
