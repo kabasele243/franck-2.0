@@ -147,10 +147,10 @@ const FeaturesSplit = ({
                  Menji-Magazine is a back-end api for a blogging website that allows users to publish articles, make comments and interact with others users.
                   </p>
                   <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="https://cruip.com/">
+                  <Button tag="a" color="primary" wideMobile href="https://wwww.menji-magazine.com/">
                     Live
                     </Button>
-                  <Button tag="a" color="dark" wideMobile href="https://github.com/cruip/open-react-template/">
+                  <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/menji-magazine">
                     View on Github
                     </Button>
                 </ButtonGroup>
