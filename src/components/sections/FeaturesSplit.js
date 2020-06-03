@@ -113,10 +113,10 @@ const FeaturesSplit = ({
                  Kenashop is a full stack web application for a ecommerce store, that allow user to search for article, checkout and buy online.
                  </p>
                   <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="https://kenashop.netlify.app/">
+                  <Button tag="a" color="primary" wideMobile href="https://boutique-project.herokuapp.com/">
                     Live
                     </Button>
-                  <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/kenashop">
+                  <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/project-ecommerce-shop">
                     View on Github
                     </Button>
                 </ButtonGroup>
