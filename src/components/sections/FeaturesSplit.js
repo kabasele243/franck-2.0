@@ -147,7 +147,7 @@ const FeaturesSplit = ({
                  Menji-Magazine is a back-end api for a blogging website that allows users to publish articles, make comments and interact with others users.
                   </p>
                   <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="https://wwww.menji-magazine.com/">
+                  <Button tag="a" color="primary" wideMobile href="https://www.menji-magazine.com/">
                     Live
                     </Button>
                   <Button tag="a" color="dark" wideMobile href="https://github.com/kabasele243/menji-magazine">
