@@ -27,7 +27,7 @@ Welcome to my portofolio website.
 5. `git pull upstream` <YOUR_BRANCH>
 6. Check out to the task branch by `git checkout -b` <NAME_OF_THE_TASK>
 
-# To run the app in development
+# To run the website in development
 
 1. Run `npm install` from the **root** and also from the **client** folder
 
