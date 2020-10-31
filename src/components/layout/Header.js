@@ -112,16 +112,17 @@ const Header = ({
                       navPosition && `header-nav-${navPosition}`
                     )}>
                     <li>
-                      <Link to="#0" onClick={closeMenu}>Home</Link>
+                      <Link to="/" onClick={closeMenu}>Home</Link>
                     </li>
                     <li>
-                      <Link to="#projects" onClick={closeMenu}>Projects</Link>
+                     { console.log(window.location.pathname)}
+                      <Link to="/project">Projects</Link>
                     </li>
                     <li>
-                      <Link to="#0" onClick={closeMenu}>Blog</Link>
+                      <Link to="/blog" onClick={closeMenu}>Blog</Link>
                     </li>
                     <li>
-                      <Link to="#0" onClick={closeMenu}>About Me</Link>
+                      <Link to="/about" onClick={closeMenu}>About Me</Link>
                     </li>
 
                   </ul>
