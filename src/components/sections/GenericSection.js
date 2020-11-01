@@ -63,20 +63,19 @@ const FeaturesSplit = ({
     >
       <div className="container" id='projects'>
         <div className={innerClasses}>
-          <SectionHeader data={sectionHeader} className="center-content" />
-          {/* <div className={splitClasses}>
+          {/* <SectionHeader data={sectionHeader} className="center-content" /> */}
+          <div className={splitClasses}>
 
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
-                {/* <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  Nodejs  Express  Mongoose  MongoDB 
-                  </div> 
-                <h3 className="mt-0 mb-12">
-                  MyTravelApp
+                
+                <h3 className="mt-0 mb-12 center-title">
+                  About Me
                   </h3>
-                <p className="m-0 mb-12">
-                 MyTravelApp is a full stack application for a travel agency, that allow user to search, and book tours for their next vacation. 
-                 </p>
+                <p className="m-2 mb-24 paragraph">
+                I'm a Software Engineer based in Atlanta, Georgia.
+
+<br></br>I enjoy turning complex problems into simple, beautiful and intuitive solutions. When I'm not coding,  you'll find me cooking, gardening or playing soccer(football).</p>
 
               </div>
               <div className={
@@ -85,14 +84,14 @@ const FeaturesSplit = ({
                   imageFill && 'split-item-image-fill'
                 )}
                 data-reveal-container=".split-item">
-                <Image
-                  src={require('./../../assets/images/franck.jpg')}
-                  alt="Features split 01"
+                {/* <Image className='franck-image'
+                  src={require('./../../assets/images/franck.png')}
+                  alt="Franck Kabasele"
                   width={828}
-                  height={596} />
+                  height={596} /> */}
               </div>
             </div> 
-          </div> */}
+          </div>
         </div>
         </div>
     </section>

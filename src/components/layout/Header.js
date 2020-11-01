@@ -118,9 +118,9 @@ const Header = ({
                      { console.log(window.location.pathname)}
                       <Link to="/project">Projects</Link>
                     </li>
-                    <li>
-                      <Link to="/blog" onClick={closeMenu}>Blog</Link>
-                    </li>
+                    {/* <li>
+                      <Link to="/#0" onClick={closeMenu}>Blog</Link>
+                    </li> */}
                     <li>
                       <Link to="/about" onClick={closeMenu}>About Me</Link>
                     </li>
