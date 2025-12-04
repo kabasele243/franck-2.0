@@ -1,15 +1,15 @@
 import React from 'react'
-import FeaturesSplit from '../components/sections/FeaturesSplit'
+import CaseStudies from '../components/sections/CaseStudies'
 
 
-const About = () => {
-    return(
-    <div>
-        <FeaturesSplit/>
-    </div>
+const Project = () => {
+    return (
+        <div>
+            <CaseStudies />
+        </div>
     );
-        
-    
+
+
 }
 
-export default About;
+export default Project;

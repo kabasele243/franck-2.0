@@ -49,7 +49,9 @@ const Image = ({
     placeholder.width = img.getAttribute('width');
     placeholder.height = img.getAttribute('height');
     placeholder.style.opacity = '0';
-    img.className && placeholder.classList.add(img.className);
+    if (img.className) {
+      img.className.split(' ').forEach(cls => cls && placeholder.classList.add(cls));
+    }
 
     img.addEventListener('load', () => {
       placeholder.remove();

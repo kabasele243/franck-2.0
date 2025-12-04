@@ -1,6 +1,9 @@
 // Font Family
 @mixin font-family($elem) {
-	font-family: unquote(get-font-family($elem));
+	$font: get-font-family($elem);
+	@if $font {
+		font-family: unquote($font);
+	}
 }
 
 // Font-size + Line-height + Kerning

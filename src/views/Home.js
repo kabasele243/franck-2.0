@@ -1,21 +1,39 @@
 import React from 'react';
-// import sections
+import '../index.css';
+// Import the new sections
 import Hero from '../components/sections/Hero';
-import FeaturesTiles from '../components/sections/FeaturesTiles';
-import FeaturesSplit from '../components/sections/FeaturesSplit';
-// import Testimonial from '../components/sections/Testimonial';
-// import Cta from '../components/sections/Cta';
+import CaseStudies from '../components/sections/CaseStudies';
+import FeaturesTiles from '../components/sections/FeaturesTiles'; // Keeping for "Skills"
 
 const Home = () => {
-
   return (
-    <>
-      <Hero className="illustration-section-01" />
-      <FeaturesTiles />
-      <FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
-      {/* <Testimonial topDivider /> */}
-      {/* <Cta split /> */}
-    </>
+    <div className="bg-bg-DEFAULT min-h-screen overflow-x-hidden">
+      {/* 1. The New Terminal-Style Hero */}
+      <Hero />
+
+      {/* 2. Skills Section (Styled to match new dark theme) */}
+      <div className="bg-bg-DEFAULT py-20 border-y border-slate-800/50">
+        <div className="container mx-auto text-center mb-12">
+          <h3 className="text-white text-2xl lg:text-3xl font-bold tracking-tight">Technical Arsenal</h3>
+          <p className="text-slate-400 mt-2">Languages and tools I use to solve problems</p>
+        </div>
+        {/* We reuse FeaturesTiles but wrap it to force dark mode styles inheritance if needed */}
+        <div className="opacity-90 scale-95">
+          <FeaturesTiles />
+        </div>
+      </div>
+
+      {/* 3. The Engineering Case Studies */}
+      <CaseStudies />
+
+      {/* 4. Simple Contact/Footer Callout */}
+      <div className="bg-bg-DEFAULT py-24 text-center">
+        <h2 className="text-3xl font-bold text-white mb-6">Ready to architect something great?</h2>
+        <a href="mailto:your.email@example.com" className="inline-block bg-transparent border-2 border-accent-cyan text-accent-cyan px-8 py-3 rounded font-mono font-bold hover:bg-accent-cyan hover:text-bg-DEFAULT transition-all duration-300">
+          Initialize Connection
+        </a>
+      </div>
+    </div>
   );
 }
 
