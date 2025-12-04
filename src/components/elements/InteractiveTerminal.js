@@ -39,7 +39,7 @@ const InteractiveTerminal = () => {
         },
         about: {
             desc: "Who am I?",
-            output: "I am a Senior Software Engineer based in Atlanta, specializing in event-driven architecture and scalable backend systems."
+            output: "I am a Software Engineer based in Atlanta, specializing in event-driven architecture and scalable full stack systems."
         },
         skills: {
             desc: "My technical arsenal",
