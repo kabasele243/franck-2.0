@@ -1,149 +1,100 @@
-import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './partials/Logo';
+import Image from '../elements/Image';
 
-const propTypes = {
-  navPosition: PropTypes.string,
-  hideNav: PropTypes.bool,
-  hideSignin: PropTypes.bool,
-  bottomOuterDivider: PropTypes.bool,
-  bottomDivider: PropTypes.bool
-}
-
-const defaultProps = {
-  navPosition: '',
-  hideNav: false,
-  hideSignin: false,
-  bottomOuterDivider: false,
-  bottomDivider: false
-}
-
-const Header = ({
-  className,
-  navPosition,
-  hideNav,
-  hideSignin,
-  bottomOuterDivider,
-  bottomDivider,
-  ...props
-}) => {
-
-  const [isActive, setIsactive] = useState(false);
-
-  const nav = useRef(null);
-  const hamburger = useRef(null);
+const Header = ({ className, ...props }) => {
+  const [isActive, setIsActive] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    isActive && openMenu();
-    document.addEventListener('keydown', keyPress);
-    document.addEventListener('click', clickOutside);
-    return () => {
-      document.removeEventListener('keydown', keyPress);
-      document.addEventListener('click', clickOutside);
-      closeMenu();
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
     };
-  });  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const openMenu = () => {
-    document.body.classList.add('off-nav-is-active');
-    nav.current.style.maxHeight = nav.current.scrollHeight + 'px';
-    setIsactive(true);
-  }
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+    // Lock body scroll when menu is open on mobile
+    document.body.style.overflow = !isActive ? 'hidden' : 'auto';
+  };
 
   const closeMenu = () => {
-    document.body.classList.remove('off-nav-is-active');
-    nav.current && (nav.current.style.maxHeight = null);
-    setIsactive(false);
-  }
-
-  const keyPress = (e) => {
-    isActive && e.keyCode === 27 && closeMenu();
-  }
-
-  const clickOutside = (e) => {
-    if (!nav.current) return
-    if (!isActive || nav.current.contains(e.target) || e.target === hamburger.current) return;
-    closeMenu();
-  }  
-
-  const classes = classNames(
-    'site-header',
-    bottomOuterDivider && 'has-bottom-divider',
-    className
-  );
+    setIsActive(false);
+    document.body.style.overflow = 'auto';
+  };
 
   return (
-    <header
-      {...props}
-      className={classes}
-    >
-      <div className="container">
-        <div className={
-          classNames(
-            'site-header-inner',
-            bottomDivider && 'has-bottom-divider'
-          )}>
-          <Logo />
-          {!hideNav &&
-            <>
-              <button
-                ref={hamburger}
-                className="header-nav-toggle"
-                onClick={isActive ? closeMenu : openMenu}
-              >
-                <span className="screen-reader">Menu</span>
-                <span className="hamburger">
-                  <span className="hamburger-inner"></span>
-                </span>
-              </button>
-              <nav
-                ref={nav}
-                className={
-                  classNames(
-                    'header-nav',
-                    isActive && 'is-active'
-                  )}>
-                <div className="header-nav-inner">
-                  <ul className={
-                    classNames(
-                      'list-reset text-xs',
-                      navPosition && `header-nav-${navPosition}`
-                    )}>
-                    <li>
-                      <Link to="/" onClick={closeMenu}>Home</Link>
-                    </li>
-                    <li>
-                     { console.log(window.location.pathname)}
-                      <Link to="/project">Projects</Link>
-                    </li>
-                    {/* <li>
-                      <Link to="/#0" onClick={closeMenu}>Blog</Link>
-                    </li> */}
-                    <li>
-                      <Link to="/about" onClick={closeMenu}>About Me</Link>
-                    </li>
+    <header className={`fixed w-full z-30 transition-all duration-300 ${scrolled ? 'bg-bg-DEFAULT/90 backdrop-blur-md py-2 shadow-lg border-b border-slate-800' : 'bg-transparent py-6'} ${className}`} {...props}>
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-12">
 
-                  </ul>
-                  {/* {!hideSignin &&
-                    <ul
-                      className="list-reset header-nav-right"
-                    >
-                      <li>
-                        <Link to="#0" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Sign up</Link>
-                      </li>
-                    </ul>} */}
-                </div>
+          {/* Logo / Brand */}
+          <div className="flex-shrink-0 mr-4">
+            <Link to="/" className="block group" onClick={closeMenu}>
+              <div className="font-mono text-xl font-bold text-white tracking-tighter group-hover:text-accent-cyan transition-colors">
+                &lt;Franck /&gt;
+              </div>
+            </Link>
+          </div>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex flex-grow justify-end">
+            <ul className="flex flex-wrap items-center justify-end gap-8 font-mono text-sm">
+              <li>
+                <Link to="/" className="text-slate-300 hover:text-accent-cyan transition-colors">Home</Link>
+              </li>
+              <li>
+                <Link to="/project" className="text-slate-300 hover:text-accent-cyan transition-colors">Case Studies</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-slate-300 hover:text-accent-cyan transition-colors">About</Link>
+              </li>
+              <li>
+                <a href="https://github.com/kabasele243" target="_blank" rel="noopener noreferrer" className="text-accent-teal hover:text-white transition-colors">
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Mobile Menu Toggle */}
+          <div className="flex md:hidden">
+            <button onClick={toggleMenu} className="text-slate-300 hover:text-white focus:outline-none">
+              <span className="sr-only">Menu</span>
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect y="4" width="24" height="2" />
+                <rect y="11" width="24" height="2" />
+                <rect y="18" width="24" height="2" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Nav Overlay */}
+          {isActive && (
+            <div className="fixed inset-0 z-50 bg-bg-DEFAULT flex flex-col items-center justify-center md:hidden">
+              <button onClick={toggleMenu} className="absolute top-6 right-6 text-slate-300 hover:text-white">
+                <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" transform="rotate(135 12 12)" />
+                  <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+                <span className="sr-only">Close</span>
+              </button>
+              <nav>
+                <ul className="flex flex-col gap-8 text-center font-mono text-xl">
+                  <li><Link to="/" onClick={closeMenu} className="text-white hover:text-accent-cyan">Home</Link></li>
+                  <li><Link to="/project" onClick={closeMenu} className="text-white hover:text-accent-cyan">Case Studies</Link></li>
+                  <li><Link to="/about" onClick={closeMenu} className="text-white hover:text-accent-cyan">About</Link></li>
+                </ul>
               </nav>
-            </>}
+            </div>
+          )}
+
         </div>
       </div>
     </header>
   );
 }
-
-Header.propTypes = propTypes;
-Header.defaultProps = defaultProps;
 
 export default Header;

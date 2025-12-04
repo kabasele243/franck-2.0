@@ -1,59 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Logo from './partials/Logo';
-import FooterNav from './partials/FooterNav';
-import FooterSocial from './partials/FooterSocial';
 
-const propTypes = {
-  topOuterDivider: PropTypes.bool,
-  topDivider: PropTypes.bool
-}
-
-const defaultProps = {
-  topOuterDivider: false,
-  topDivider: false
-}
-
-const Footer = ({
-  className,
-  topOuterDivider,
-  topDivider,
-  ...props
-}) => {
-
-  const classes = classNames(
-    'site-footer center-content-mobile',
-    topOuterDivider && 'has-top-divider',
-    className
-  );
-
+const Footer = ({ className, ...props }) => {
   return (
-    <footer
-      {...props}
-      className={classes}
-    >
-      <div className="container">
-        <div className={
-          classNames(
-            'site-footer-inner',
-            topDivider && 'has-top-divider'
-          )}>
-          <div className="footer-top space-between text-xxs">
-            <Logo />
-            {/* <FooterSocial /> */}
+    <footer className={`bg-bg-DEFAULT border-t border-slate-800 py-8 md:py-12 ${className}`} {...props}>
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="md:flex md:items-center md:justify-between text-center md:text-left">
+
+          <div className="text-sm text-slate-500 font-mono mb-4 md:mb-0">
+            &copy; {new Date().getFullYear()} Franck Kabasele. Built with React & Tailwind.
           </div>
-          <div className="footer-bottom space-between text-xxs invert-order-desktop">
-            <FooterNav />
-            <div className="footer-copyright">Franck Kabasele</div>
+
+          <div className="flex justify-center md:justify-end gap-6">
+            <a href="https://github.com/kabasele243" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
+              LinkedIn
+            </a>
+            <a href="mailto:your.email@example.com" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
+              Email
+            </a>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
-Footer.propTypes = propTypes;
-Footer.defaultProps = defaultProps;
 
 export default Footer;

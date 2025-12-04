@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 import classNames from 'classnames';
-import ButtonGroup from '../elements/ButtonGroup';
-import Button from '../elements/Button';
+// import ButtonGroup from '../elements/ButtonGroup';
+// import Button from '../elements/Button';
 import { SectionSplitProps } from '../../utils/SectionProps';
-import SectionHeader from './partials/SectionHeader';
-import Image from '../elements/Image';
+// import SectionHeader from './partials/SectionHeader';
+// import Image from '../elements/Image';
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -68,14 +68,14 @@ const FeaturesSplit = ({
 
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
-                
+
                 <h3 className="mt-0 mb-12 center-title">
                   About Me
-                  </h3>
+                </h3>
                 <p className="m-2 mb-24 paragraph">
-                I'm a Software Engineer based in Atlanta, Georgia.
+                  I'm a Software Engineer based in Atlanta, Georgia.
 
-<br></br>I enjoy turning complex problems into simple, beautiful and intuitive solutions. When I'm not coding,  you'll find me cooking, gardening or playing soccer(football).</p>
+                  <br></br>I enjoy turning complex problems into simple, beautiful and intuitive solutions. When I'm not coding,  you'll find me cooking, gardening or playing soccer(football).</p>
 
               </div>
               <div className={
@@ -90,10 +90,10 @@ const FeaturesSplit = ({
                   width={828}
                   height={596} /> */}
               </div>
-            </div> 
+            </div>
           </div>
         </div>
-        </div>
+      </div>
     </section>
   );
 }
