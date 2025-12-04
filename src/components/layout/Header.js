@@ -33,7 +33,7 @@ const Header = ({ className, ...props }) => {
           <div className="flex-shrink-0 mr-4">
             <Link to="/" className="block group" onClick={closeMenu}>
               <div className="font-mono text-xl font-bold text-white tracking-tighter group-hover:text-accent-cyan transition-colors">
-                &lt;Franck /&gt;
+                &lt;Franck  Kabasele/&gt;
               </div>
             </Link>
           </div>
@@ -44,9 +44,9 @@ const Header = ({ className, ...props }) => {
               <li>
                 <Link to="/" className="text-slate-300 hover:text-accent-cyan transition-colors">Home</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/project" className="text-slate-300 hover:text-accent-cyan transition-colors">Case Studies</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/about" className="text-slate-300 hover:text-accent-cyan transition-colors">About</Link>
               </li>
