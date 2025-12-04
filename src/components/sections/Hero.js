@@ -26,7 +26,7 @@ const Hero = () => {
           </motion.div>
 
           <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-none">
-            Architecting <br />
+            Building <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-purple">
               Event-Driven
             </span> Systems.
