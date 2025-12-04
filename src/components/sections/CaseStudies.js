@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-// Importing existing images
+import Image from '../elements/Image';
+import ArchitectureModal from '../elements/ArchitectureModal';
+
+// Images
 import imgTravel from './../../assets/images/mytravelApp.png';
 import imgKena from './../../assets/images/kenashop.png';
 import imgMenji from './../../assets/images/gf.png';
@@ -8,11 +11,18 @@ import imgNubia from './../../assets/images/nubia.PNG';
 import imgAdili from './../../assets/images/adili.PNG';
 
 const CaseStudies = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState(null);
+
+  const openArchitecture = (project) => {
+    setCurrentProject(project);
+    setModalOpen(true);
+  };
 
   const projects = [
     {
       title: "MyTravelApp",
-      type: "Full Stack Application",
+      type: "Full Stack Architecture",
       description: "A comprehensive booking platform handling complex concurrent user requests.",
       technical_details: [
         "Implemented optimistic locking to prevent race conditions during tour booking.",
@@ -22,35 +32,111 @@ const CaseStudies = () => {
       stack: ["Node.js", "MongoDB", "Pug", "JWT"],
       link: "https://mytravelapp.netlify.app/",
       repo: "https://github.com/kabasele243/mytravelapp",
-      image: imgTravel
+      image: imgTravel,
+      // The Diagram Definition
+      diagram: `
+        graph LR
+          subgraph Client
+            Browser[Browser / Pug Templates]
+          end
+          subgraph Load_Balancer
+            NGINX[NGINX / Reverse Proxy]
+          end
+          subgraph API_Layer
+            Node[Node.js Express API]
+            Auth[JWT Auth Middleware]
+          end
+          subgraph Data_Layer
+            Mongo[(MongoDB Atlas)]
+            Redis[(Redis Cache)]
+          end
+          
+          Browser -->|HTTPS| NGINX
+          NGINX --> Node
+          Node --> Auth
+          Auth --> Node
+          Node -->|Read/Write| Mongo
+          Node -->|Cache Hit/Miss| Redis
+          
+          style Client fill:#1E1E1E,stroke:#45A29E,color:#fff
+          style Load_Balancer fill:#1E1E1E,stroke:#C084FC,color:#fff
+          style API_Layer fill:#1E1E1E,stroke:#66FCF1,color:#fff
+          style Data_Layer fill:#0B0C10,stroke:#fff,color:#fff
+      `
     },
     {
       title: "KenaShop",
-      type: "E-Commerce Architecture",
+      type: "E-Commerce Systems",
       description: "A scalable e-commerce solution focusing on inventory management and payment security.",
       technical_details: [
         "Integrated Stripe API for secure payment processing.",
         "Modeled complex product variants (size, color, material) in Firebase.",
-        "Utilized Redux for global state management of the cart and user session."
+        "Utilized Redux for global state management."
       ],
       stack: ["React", "Firebase", "Stripe", "Redux"],
       link: "https://boutique-project.herokuapp.com/",
       repo: "https://github.com/kabasele243/project-ecommerce-shop",
-      image: imgKena
+      image: imgKena,
+      diagram: `
+        graph TD
+          User((User))
+          subgraph Frontend
+            React[React SPA]
+            Redux[Redux Store]
+          end
+          subgraph Backend_Services
+            Firebase[Firebase Auth & DB]
+            Stripe[Stripe Payment GW]
+          end
+          
+          User --> React
+          React -->|Dispatch| Redux
+          React -->|Auth/Data| Firebase
+          React -->|Checkout| Stripe
+          Stripe -->|Webhook| Firebase
+          
+          style Frontend fill:#1E1E1E,stroke:#66FCF1,color:#fff
+          style Backend_Services fill:#0B0C10,stroke:#C084FC,color:#fff
+      `
     },
     {
       title: "Menji Magazine",
       type: "Content Management System",
       description: "A backend-heavy blogging platform with granular permission systems.",
       technical_details: [
-        "Engineered a role-based access control (RBAC) system for Authors vs Editors.",
-        "Optimized database queries for retrieving nested comments efficiently.",
+        "Engineered a role-based access control (RBAC) system.",
+        "Optimized database queries for nested comments.",
         "Deployed on Heroku with a CI/CD pipeline."
       ],
       stack: ["Node.js", "Express", "MongoDB", "REST"],
       link: "https://www.menji-magazine.com/",
       repo: "https://github.com/kabasele243/menji-magazine",
-      image: imgMenji
+      image: imgMenji,
+      diagram: `
+        graph TD
+          subgraph Users
+            Admin[Admin/Editor]
+            Reader[Reader]
+          end
+          subgraph API_Gateway
+            Express[Express REST API]
+            RBAC[RBAC Middleware]
+          end
+          subgraph Storage
+            DB[(MongoDB)]
+            Assets[S3 Bucket]
+          end
+          
+          Admin -->|Create/Edit| Express
+          Reader -->|Read/Comment| Express
+          Express --> RBAC
+          RBAC --> Express
+          Express -->|JSON Data| DB
+          Express -->|Uploads| Assets
+          
+          style Users fill:#1E1E1E,stroke:#C084FC,color:#fff
+          style API_Gateway fill:#1E1E1E,stroke:#66FCF1,color:#fff
+      `
     },
     {
       title: "Nubia",
@@ -64,7 +150,22 @@ const CaseStudies = () => {
       stack: ["React", "CSS3", "Netlify"],
       link: "https://nubia-site.netlify.app",
       repo: "https://github.com/kabasele243/nubia",
-      image: imgNubia
+      image: imgNubia,
+      diagram: `
+        graph LR
+          subgraph Client_Side
+            React[React App]
+            Motion[Framer Motion]
+          end
+          subgraph CDN
+            Netlify[Netlify Edge]
+          end
+          
+          Netlify -->|Serve Static Assets| React
+          React -->|Animation Controls| Motion
+          
+          style Client_Side fill:#1E1E1E,stroke:#66FCF1,color:#fff
+      `
     },
     {
       title: "Adili",
@@ -77,7 +178,23 @@ const CaseStudies = () => {
       stack: ["React", "SASS", "Responsive Design"],
       link: "https://adili.netlify.app/",
       repo: "https://github.com/kabasele243/adili",
-      image: imgAdili
+      image: imgAdili,
+      diagram: `
+        graph TD
+          User -->|Request| CDN
+          subgraph Host
+            CDN[Netlify/Vercel]
+          end
+          subgraph App
+            Static[Static Generator]
+            SASS[SASS Compiler]
+          end
+          
+          Static --> CDN
+          SASS --> CDN
+          
+          style App fill:#1E1E1E,stroke:#45A29E,color:#fff
+      `
     }
   ];
 
@@ -107,21 +224,30 @@ const CaseStudies = () => {
                 transition={{ duration: 0.6 }}
                 className="flex-1 w-full relative group"
               >
-                {/* Glow Effect */}
                 <div className="absolute -inset-2 bg-accent-cyan/10 rounded-xl blur-xl group-hover:bg-accent-cyan/20 transition-all duration-500"></div>
-
                 <div className="relative bg-bg-DEFAULT rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
-                  {/* Browser Bar for "Dev" feel */}
                   <div className="bg-[#1E1E1E] h-8 border-b border-slate-700 flex items-center px-4 gap-2">
                     <div className="w-2 h-2 rounded-full bg-slate-500"></div>
                     <div className="w-2 h-2 rounded-full bg-slate-500"></div>
                   </div>
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300 hover:scale-105 transform"
-                    style={{ transition: 'transform 0.5s ease, opacity 0.3s ease' }}
+                    className="w-full h-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    width={800}
+                    height={600}
                   />
+
+                  {/* Overlay Button for Diagram */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 backdrop-blur-sm">
+                    <button
+                      onClick={() => openArchitecture(project)}
+                      className="bg-accent-cyan text-bg-DEFAULT px-6 py-3 rounded font-mono font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                      View Architecture
+                    </button>
+                  </div>
                 </div>
               </motion.div>
 
@@ -170,6 +296,15 @@ const CaseStudies = () => {
         </div>
 
       </div>
+
+      {/* Architecture Modal Instance */}
+      <ArchitectureModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={currentProject?.title}
+        diagram={currentProject?.diagram}
+      />
+
     </section>
   );
 }

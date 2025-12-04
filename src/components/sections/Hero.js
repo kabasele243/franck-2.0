@@ -1,17 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import InteractiveTerminal from '../elements/InteractiveTerminal';
 
 const Hero = () => {
-  // Animation variants for the terminal lines
-  const lineVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.15, duration: 0.5 }
-    })
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-DEFAULT pt-20 pb-20 px-4 sm:px-6 lg:px-8">
 
@@ -48,11 +39,13 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a href="#case-studies" className="bg-accent-cyan text-bg-DEFAULT px-8 py-4 rounded font-mono font-bold hover:bg-white hover:scale-105 transition-all duration-300">
-              ./view_projects.sh
-            </a>
             <a href="/about" className="border border-slate-600 text-slate-300 px-8 py-4 rounded font-mono hover:border-accent-cyan hover:text-accent-cyan transition-all duration-300">
               cat about_me.txt
+            </a>
+            {/* New Resume Button */}
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="border border-slate-600 text-slate-300 px-8 py-4 rounded font-mono hover:border-accent-teal hover:text-accent-teal transition-all duration-300 flex items-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              Resume.pdf
             </a>
           </div>
         </div>
@@ -65,64 +58,8 @@ const Hero = () => {
           className="relative w-full max-w-lg mx-auto lg:mr-0"
         >
           {/* Terminal Window */}
-          <div className="bg-[#1E1E1E] rounded-lg shadow-2xl border border-slate-700 overflow-hidden transform transition-transform hover:scale-[1.01] duration-500">
-            {/* Title Bar */}
-            <div className="bg-[#252526] px-4 py-3 flex items-center gap-2 border-b border-black/40">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#27C93F]"></div>
-              </div>
-              <div className="flex-1 text-center text-slate-500 text-xs font-mono">franck — -zsh — 80x24</div>
-            </div>
-
-            {/* Terminal Body */}
-            <div className="p-6 font-mono text-sm sm:text-base leading-loose text-slate-300">
-              <div className="mb-4">
-                <span className="text-accent-cyan">➜</span> <span className="text-blue-400">~</span> <span className="text-yellow-300">neofetch</span> --user franck
-              </div>
-
-              <div className="grid grid-cols-[100px_1fr] gap-4">
-                <div className="text-accent-purple hidden sm:block">
-                  <pre className="text-[8px] leading-[8px]">
-                    {`
-   _    _ 
-  | |  | |
-  | |__| |
-  |  __  |
-  | |  | |
-  |_|  |_|
-`}
-                  </pre>
-                </div>
-                <div className="space-y-1">
-                  <motion.div custom={1} variants={lineVariants} initial="hidden" animate="visible">
-                    <span className="text-accent-cyan font-bold">Role:</span> Senior Software Engineer
-                  </motion.div>
-                  <motion.div custom={2} variants={lineVariants} initial="hidden" animate="visible">
-                    <span className="text-accent-cyan font-bold">Location:</span> Atlanta, GA
-                  </motion.div>
-                  <motion.div custom={3} variants={lineVariants} initial="hidden" animate="visible">
-                    <span className="text-accent-cyan font-bold">Backend:</span> Node.js, Python, Go
-                  </motion.div>
-                  <motion.div custom={4} variants={lineVariants} initial="hidden" animate="visible">
-                    <span className="text-accent-cyan font-bold">Cloud:</span> AWS (SQS, Lambda, DynamoDB)
-                  </motion.div>
-                  <motion.div custom={5} variants={lineVariants} initial="hidden" animate="visible">
-                    <span className="text-accent-cyan font-bold">Frontend:</span> React, Next.js, Tailwind
-                  </motion.div>
-                  <motion.div custom={6} variants={lineVariants} initial="hidden" animate="visible">
-                    <span className="text-accent-cyan font-bold">Current:</span> Building InterviewSprint
-                  </motion.div>
-                </div>
-              </div>
-
-              <div className="mt-4 flex items-center">
-                <span className="text-accent-cyan mr-2">➜</span>
-                <span className="text-blue-400 mr-2">~</span>
-                <span className="animate-pulse bg-slate-400 w-2.5 h-5 block"></span>
-              </div>
-            </div>
+          <div className="h-[400px] bg-[#1E1E1E] overflow-hidden">
+            <InteractiveTerminal />
           </div>
 
           {/* Decorative shadow/glow */}

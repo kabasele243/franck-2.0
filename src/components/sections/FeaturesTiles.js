@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from '../elements/Image';
 
-// Importing icons (ensure these exist, or replace with font awesome/react-icons)
+// Importing icons
 import imgReact from './../../assets/images/React-icon.svg';
 import imgJS from './../../assets/images/javascript.svg';
 import imgGQL from './../../assets/images/gql.svg';
@@ -13,34 +13,40 @@ const FeaturesTiles = ({ className, ...props }) => {
 
   const tiles = [
     {
-      img: imgReact,
-      title: "React Ecosystem",
-      desc: "Advanced patterns, Context API, Hooks, and Next.js for server-side rendering."
-    },
-    {
       img: imgNode,
-      title: "Node.js",
-      desc: "Building high-throughput, event-driven microservices and REST APIs."
+      title: "Backend & Microservices",
+      // Resume: Node.js, Go, Hapi.js, Express, Gin, Echo
+      desc: "Architecting scalable, multi-tenant backend systems using Node.js and Go. Expertise in decoupling services via event-driven patterns (SQS/SNS, Kinesis)."
     },
     {
       img: imgAWS,
-      title: "AWS Cloud",
-      desc: "Serverless architecture (Lambda), SQS for message queuing, and DynamoDB."
+      title: "Cloud Infrastructure (AWS)",
+      // Resume: AWS (Lambda, RDS, ECS, Kinesis, SQS...), Terraform, CDK
+      desc: "Designing serverless and containerized environments (Lambda, Fargate, ECS). implementing Infrastructure as Code (IaC) with Terraform and AWS CDK."
     },
     {
-      img: imgGQL,
-      title: "GraphQL",
-      desc: "Efficient data fetching with Apollo Client and server-side schema design."
+      img: imgReact,
+      title: "Modern Frontend",
+      // Resume: React, Redux, Angular, TypeScript
+      desc: "Building resilient, component-driven UIs with React and TypeScript. Focusing on performance, modularity, and strict type safety."
     },
     {
       img: imgMongo,
-      title: "Database Design",
-      desc: "NoSQL modeling, aggregation pipelines, and performance indexing."
+      title: "Data Strategy",
+      // Resume: PostgreSQL, MongoDB, DynamoDB, SQL
+      desc: "Implementing hybrid database strategies to ensure data integrity. Experienced with relational (PostgreSQL) and NoSQL (DynamoDB, MongoDB) modeling."
     },
     {
-      img: imgJS,
-      title: "TypeScript",
-      desc: "Writing robust, type-safe code to reduce runtime errors and improve maintainability."
+      img: imgGQL,
+      title: "API Architecture",
+      // Resume: GraphQL, REST, OpenAPI (Fern), JWT
+      desc: "Designing secure, versioned APIs using GraphQL and REST standards (OpenAPI/Fern). managing authentication and data flow optimization."
+    },
+    {
+      img: imgJS, // Using JS icon to represent 'Languages' generally
+      title: "DevOps & Observability",
+      // Resume: Docker, K8s, CI/CD, DataDog, Splunk
+      desc: "Streamlining deployments with Docker, Kubernetes, and GitHub Actions. Ensuring reliability via DataDog, CloudWatch, and NewRelic monitoring suites."
     }
   ];
 
@@ -60,7 +66,7 @@ const FeaturesTiles = ({ className, ...props }) => {
                   className="filter grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-              <h4 className="text-white font-bold mb-2">{tile.title}</h4>
+              <h4 className="text-white font-bold mb-2 font-mono">{tile.title}</h4>
               <p className="text-slate-400 text-sm leading-relaxed">
                 {tile.desc}
               </p>

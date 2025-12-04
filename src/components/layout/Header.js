@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Image from '../elements/Image';
 
 const Header = ({ className, ...props }) => {
   const [isActive, setIsActive] = useState(false);

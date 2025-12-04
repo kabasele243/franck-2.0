@@ -17,7 +17,7 @@ const Footer = ({ className, ...props }) => {
             <a href="https://linkedin.com/in/yourprofile" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
               LinkedIn
             </a>
-            <a href="mailto:your.email@example.com" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
+            <a href="mailto:kabasele467@gmail.com" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
               Email
             </a>
           </div>
