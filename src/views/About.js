@@ -19,32 +19,27 @@ const About = () => {
                     <div className="mb-8">
                         <h2 className="text-slate-500 mb-2">{/* Summary */}</h2>
                         <p className="text-slate-300">
-                            "I am an Atlanta-based software engineer with experience across <span className="text-accent-teal">Fintech</span>, <span className="text-accent-teal">Healthcare</span>, and <span className="text-accent-teal">Automotive</span> industries.
-                            I specialize in the 'plumbing' of software development—gathering complex business requirements and translating them into clean, scalable, event-driven systems."
+                            "I'm an Atlanta-based full stack engineer with experience across <span className="text-accent-teal">Fintech</span>, <span className="text-accent-teal">Healthcare</span>, and <span className="text-accent-teal">Automotive</span> industries.
+                            I specialize in designing distributed systems and building scalable event-driven architectures that solve complex business problems."
                         </p>
                     </div>
 
                     <div className="mb-8">
                         <h2 className="text-slate-500 mb-2">{/* Core_Competencies */}</h2>
                         <ul className="list-disc pl-5 text-[#CE9178] space-y-1">
-                            <li><span className="text-slate-300">Complex System Design</span></li>
-                            <li><span className="text-slate-300">Event-Driven Architecture (SQS, Kafka)</span></li>
-                            <li><span className="text-slate-300">Cloud Infrastructure (AWS)</span></li>
-                            <li><span className="text-slate-300">API Development (REST & GraphQL)</span></li>
+                            <li><span className="text-slate-300">Distributed Systems & Microservices Architecture</span></li>
+                            <li><span className="text-slate-300">Event-Driven Architecture (SQS, Kafka, RabbitMQ)</span></li>
+                            <li><span className="text-slate-300">Cloud Infrastructure & DevOps (AWS, Docker, Kubernetes)</span></li>
+                            <li><span className="text-slate-300">Full Stack Development (React, Node.js, Python, Java)</span></li>
+                            <li><span className="text-slate-300">API Design & Development (REST, GraphQL, gRPC)</span></li>
+                            <li><span className="text-slate-300">Database Design (SQL, NoSQL, Caching Strategies)</span></li>
                         </ul>
-                    </div>
-
-                    <div className="mb-8">
-                        <h2 className="text-slate-500 mb-2">{/* Current_Status */}</h2>
-                        <p className="text-slate-300">
-                            Currently building <span className="text-white font-bold">InterviewSprint</span>, an AI-powered platform to help engineers crush technical interviews.
-                        </p>
                     </div>
 
                     <div>
                         <h2 className="text-slate-500 mb-2">{/* Interests */}</h2>
                         <p className="text-slate-300">
-                            ["Software Architecture", "Open Source", "Soccer", "Gardening", "Congolese Community Tech"]
+                            ["System Design", "Scalability Patterns", "Developer Tools", "Open Source", "Soccer", "Tech Community Building"]
                         </p>
                     </div>
 

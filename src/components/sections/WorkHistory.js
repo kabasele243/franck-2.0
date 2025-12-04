@@ -6,19 +6,19 @@ const WorkHistory = () => {
             company: "Kard Financial",
             role: "Software Engineer I",
             date: "Oct 2022 - Present",
-            desc: "Contributed to a scalable, multi-tenant backend for a transactional fintech platform processing millions of transactions via ECS Fargate and Node.js."
+            desc: "Kard is a rewards-as-a-service platform that provides loyalty programs to neo-banks."
         },
         {
             company: "Cox Automotive",
             role: "Software Engineer I",
             date: "Nov 2021 - June 2022",
-            desc: "Optimized high-volume dealership widgets and modernized frontend architecture with a modular React.js component library."
+            desc: "Cox Automotive delivers digital marketing and software solutions to automotive dealerships."
         },
         {
             company: "Florence Healthcare",
             role: "Software Engineer",
             date: "Mar 2021 - Sept 2021",
-            desc: "Refactored legacy flows into Service-Oriented Architecture (SOA) using RabbitMQ and developed cloud-native Node.js REST APIs."
+            desc: "Florence Healthcare provides clinical trial management software for research sites."
         }
     ];
 

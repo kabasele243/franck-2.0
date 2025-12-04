@@ -33,9 +33,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg lg:text-xl text-slate-400 max-w-xl leading-relaxed">
-            I am <span className="text-white font-semibold">Franck Kabasele</span>.
-            I specialize in the "plumbing" of the web—building scalable backend architectures
-            for Fintech, Healthcare, and Automotive industries.
+            I'm <span className="text-white font-semibold">Franck Kabasele</span>, a full stack engineer focused on designing distributed systems and event-driven architectures for Fintech, Healthcare, and Automotive domains.
           </p>
 
           <div className="flex flex-wrap gap-4">
