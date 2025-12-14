@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Image from '../elements/Image';
 import ArchitectureModal from '../elements/ArchitectureModal';
 
 // Images
-import imgTravel from './../../assets/images/mytravelApp.png';
-import imgKena from './../../assets/images/kenashop.png';
-import imgMenji from './../../assets/images/gf.png';
-import imgNubia from './../../assets/images/nubia.PNG';
-import imgAdili from './../../assets/images/adili.PNG';
+// import imgTravel from './../../assets/images/mytravelApp.png';
+// import imgKena from './../../assets/images/kenashop.png';
+// import imgMenji from './../../assets/images/gf.png';
+// import imgNubia from './../../assets/images/nubia.PNG';
+// import imgAdili from './../../assets/images/adili.PNG';
+import imgIdempotency from './../../assets/images/video-placeholder.jpg';
 
 const CaseStudies = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,181 +23,222 @@ const CaseStudies = () => {
 
   const projects = [
     {
-      title: "MyTravelApp",
-      type: "Full Stack Architecture",
-      description: "A comprehensive booking platform handling complex concurrent user requests.",
+      title: "Idempotent API Engine",
+      type: "Distributed Systems",
+      description: "A fault-tolerant middleware ensuring exactly-once processing for payment APIs during network failures.",
       technical_details: [
-        "Implemented optimistic locking to prevent race conditions during tour booking.",
-        "Designed a MongoDB aggregation pipeline for real-time analytics.",
-        "Built a RESTful API using Node.js and Express."
+        "Leveraged DynamoDB atomic conditional writes for distributed locking.",
+        "Designed state-machine middleware to intercept and cache API responses.",
+        "Prevented duplicate transactions during simulated high-concurrency retry storms."
       ],
-      stack: ["Node.js", "MongoDB", "Pug", "JWT"],
-      link: "https://mytravelapp.netlify.app/",
-      repo: "https://github.com/kabasele243/mytravelapp",
-      image: imgTravel,
-      // The Diagram Definition
-      diagram: `
-        graph LR
-          subgraph Client
-            Browser[Browser / Pug Templates]
-          end
-          subgraph Load_Balancer
-            NGINX[NGINX / Reverse Proxy]
-          end
-          subgraph API_Layer
-            Node[Node.js Express API]
-            Auth[JWT Auth Middleware]
-          end
-          subgraph Data_Layer
-            Mongo[(MongoDB Atlas)]
-            Redis[(Redis Cache)]
-          end
-          
-          Browser -->|HTTPS| NGINX
-          NGINX --> Node
-          Node --> Auth
-          Auth --> Node
-          Node -->|Read/Write| Mongo
-          Node -->|Cache Hit/Miss| Redis
-          
-          style Client fill:#1E1E1E,stroke:#45A29E,color:#fff
-          style Load_Balancer fill:#1E1E1E,stroke:#C084FC,color:#fff
-          style API_Layer fill:#1E1E1E,stroke:#66FCF1,color:#fff
-          style Data_Layer fill:#0B0C10,stroke:#fff,color:#fff
-      `
-    },
-    {
-      title: "KenaShop",
-      type: "E-Commerce Systems",
-      description: "A scalable e-commerce solution focusing on inventory management and payment security.",
-      technical_details: [
-        "Integrated Stripe API for secure payment processing.",
-        "Modeled complex product variants (size, color, material) in Firebase.",
-        "Utilized Redux for global state management."
-      ],
-      stack: ["React", "Firebase", "Stripe", "Redux"],
-      link: "https://boutique-project.herokuapp.com/",
-      repo: "https://github.com/kabasele243/project-ecommerce-shop",
-      image: imgKena,
+      stack: ["TypeScript", "Node.js", "DynamoDB", "Docker"],
+      link: "/case-studies/idempotent-api",
+      repo: "https://github.com/kabasele243/backend-university/tree/main/08-idempotent-api",
+      image: imgIdempotency,
       diagram: `
         graph TD
-          User((User))
-          subgraph Frontend
-            React[React SPA]
-            Redux[Redux Store]
-          end
-          subgraph Backend_Services
-            Firebase[Firebase Auth & DB]
-            Stripe[Stripe Payment GW]
-          end
-          
-          User --> React
-          React -->|Dispatch| Redux
-          React -->|Auth/Data| Firebase
-          React -->|Checkout| Stripe
-          Stripe -->|Webhook| Firebase
-          
-          style Frontend fill:#1E1E1E,stroke:#66FCF1,color:#fff
-          style Backend_Services fill:#0B0C10,stroke:#C084FC,color:#fff
-      `
-    },
-    {
-      title: "Menji Magazine",
-      type: "Content Management System",
-      description: "A backend-heavy blogging platform with granular permission systems.",
-      technical_details: [
-        "Engineered a role-based access control (RBAC) system.",
-        "Optimized database queries for nested comments.",
-        "Deployed on Heroku with a CI/CD pipeline."
-      ],
-      stack: ["Node.js", "Express", "MongoDB", "REST"],
-      link: "https://www.menji-magazine.com/",
-      repo: "https://github.com/kabasele243/menji-magazine",
-      image: imgMenji,
-      diagram: `
-        graph TD
-          subgraph Users
-            Admin[Admin/Editor]
-            Reader[Reader]
+          subgraph Client_Layer
+            Client[Client App]
           end
           subgraph API_Gateway
-            Express[Express REST API]
-            RBAC[RBAC Middleware]
+            Middleware[Idempotency Middleware]
+            Controller[Payment Controller]
           end
-          subgraph Storage
-            DB[(MongoDB)]
-            Assets[S3 Bucket]
+          subgraph Persistence
+            Dynamo[(DynamoDB Lock)]
+            Postgres[(Postgres DB)]
           end
           
-          Admin -->|Create/Edit| Express
-          Reader -->|Read/Comment| Express
-          Express --> RBAC
-          RBAC --> Express
-          Express -->|JSON Data| DB
-          Express -->|Uploads| Assets
+          Client -->|x-idempotency-key| Middleware
+          Middleware -->|1. Atomic Lock| Dynamo
+          Dynamo -.->|Lock Acquired| Middleware
+          Middleware -->|2. Process Request| Controller
+          Controller -->|3. Create Order| Postgres
+          Controller -.->|4. Return Result| Middleware
+          Middleware -->|5. Update State| Dynamo
+          Middleware -->|6. Safe Response| Client
           
-          style Users fill:#1E1E1E,stroke:#C084FC,color:#fff
+          style Client_Layer fill:#1E1E1E,stroke:#45A29E,color:#fff
           style API_Gateway fill:#1E1E1E,stroke:#66FCF1,color:#fff
+          style Persistence fill:#0B0C10,stroke:#C084FC,color:#fff
       `
     },
-    {
-      title: "Nubia",
-      type: "Frontend UI/UX",
-      description: "A storytelling platform focused on immersive user experience.",
-      technical_details: [
-        "Implemented smooth scroll reveals and parallax effects.",
-        "Optimized asset loading for low-bandwidth connections.",
-        "Component-driven architecture for reusability."
-      ],
-      stack: ["React", "CSS3", "Netlify"],
-      link: "https://nubia-site.netlify.app",
-      repo: "https://github.com/kabasele243/nubia",
-      image: imgNubia,
-      diagram: `
-        graph LR
-          subgraph Client_Side
-            React[React App]
-            Motion[Framer Motion]
-          end
-          subgraph CDN
-            Netlify[Netlify Edge]
-          end
-          
-          Netlify -->|Serve Static Assets| React
-          React -->|Animation Controls| Motion
-          
-          style Client_Side fill:#1E1E1E,stroke:#66FCF1,color:#fff
-      `
-    },
-    {
-      title: "Adili",
-      type: "Real Estate Platform",
-      description: "A high-performance static site for real estate listings.",
-      technical_details: [
-        "Focus on SEO optimization and semantic HTML5.",
-        "Responsive design patterns for mobile-first users."
-      ],
-      stack: ["React", "SASS", "Responsive Design"],
-      link: "https://adili.netlify.app/",
-      repo: "https://github.com/kabasele243/adili",
-      image: imgAdili,
-      diagram: `
-        graph TD
-          User -->|Request| CDN
-          subgraph Host
-            CDN[Netlify/Vercel]
-          end
-          subgraph App
-            Static[Static Generator]
-            SASS[SASS Compiler]
-          end
-          
-          Static --> CDN
-          SASS --> CDN
-          
-          style App fill:#1E1E1E,stroke:#45A29E,color:#fff
-      `
-    }
+    // {
+    //   title: "MyTravelApp",
+    //   type: "Full Stack Architecture",
+    //   description: "A comprehensive booking platform handling complex concurrent user requests.",
+    //   technical_details: [
+    //     "Implemented optimistic locking to prevent race conditions during tour booking.",
+    //     "Designed a MongoDB aggregation pipeline for real-time analytics.",
+    //     "Built a RESTful API using Node.js and Express."
+    //   ],
+    //   stack: ["Node.js", "MongoDB", "Pug", "JWT"],
+    //   link: "https://mytravelapp.netlify.app/",
+    //   repo: "https://github.com/kabasele243/mytravelapp",
+    //   image: imgTravel,
+    //   // The Diagram Definition
+    //   diagram: `
+    //     graph LR
+    //       subgraph Client
+    //         Browser[Browser / Pug Templates]
+    //       end
+    //       subgraph Load_Balancer
+    //         NGINX[NGINX / Reverse Proxy]
+    //       end
+    //       subgraph API_Layer
+    //         Node[Node.js Express API]
+    //         Auth[JWT Auth Middleware]
+    //       end
+    //       subgraph Data_Layer
+    //         Mongo[(MongoDB Atlas)]
+    //         Redis[(Redis Cache)]
+    //       end
+
+    //       Browser -->|HTTPS| NGINX
+    //       NGINX --> Node
+    //       Node --> Auth
+    //       Auth --> Node
+    //       Node -->|Read/Write| Mongo
+    //       Node -->|Cache Hit/Miss| Redis
+
+    //       style Client fill:#1E1E1E,stroke:#45A29E,color:#fff
+    //       style Load_Balancer fill:#1E1E1E,stroke:#C084FC,color:#fff
+    //       style API_Layer fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //       style Data_Layer fill:#0B0C10,stroke:#fff,color:#fff
+    //   `
+    // },
+    // {
+    //   title: "KenaShop",
+    //   type: "E-Commerce Systems",
+    //   description: "A scalable e-commerce solution focusing on inventory management and payment security.",
+    //   technical_details: [
+    //     "Integrated Stripe API for secure payment processing.",
+    //     "Modeled complex product variants (size, color, material) in Firebase.",
+    //     "Utilized Redux for global state management."
+    //   ],
+    //   stack: ["React", "Firebase", "Stripe", "Redux"],
+    //   link: "https://boutique-project.herokuapp.com/",
+    //   repo: "https://github.com/kabasele243/project-ecommerce-shop",
+    //   image: imgKena,
+    //   diagram: `
+    //     graph TD
+    //       User((User))
+    //       subgraph Frontend
+    //         React[React SPA]
+    //         Redux[Redux Store]
+    //       end
+    //       subgraph Backend_Services
+    //         Firebase[Firebase Auth & DB]
+    //         Stripe[Stripe Payment GW]
+    //       end
+
+    //       User --> React
+    //       React -->|Dispatch| Redux
+    //       React -->|Auth/Data| Firebase
+    //       React -->|Checkout| Stripe
+    //       Stripe -->|Webhook| Firebase
+
+    //       style Frontend fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //       style Backend_Services fill:#0B0C10,stroke:#C084FC,color:#fff
+    //   `
+    // },
+    // {
+    //   title: "Menji Magazine",
+    //   type: "Content Management System",
+    //   description: "A backend-heavy blogging platform with granular permission systems.",
+    //   technical_details: [
+    //     "Engineered a role-based access control (RBAC) system.",
+    //     "Optimized database queries for nested comments.",
+    //     "Deployed on Heroku with a CI/CD pipeline."
+    //   ],
+    //   stack: ["Node.js", "Express", "MongoDB", "REST"],
+    //   link: "https://www.menji-magazine.com/",
+    //   repo: "https://github.com/kabasele243/menji-magazine",
+    //   image: imgMenji,
+    //   diagram: `
+    //     graph TD
+    //       subgraph Users
+    //         Admin[Admin/Editor]
+    //         Reader[Reader]
+    //       end
+    //       subgraph API_Gateway
+    //         Express[Express REST API]
+    //         RBAC[RBAC Middleware]
+    //       end
+    //       subgraph Storage
+    //         DB[(MongoDB)]
+    //         Assets[S3 Bucket]
+    //       end
+
+    //       Admin -->|Create/Edit| Express
+    //       Reader -->|Read/Comment| Express
+    //       Express --> RBAC
+    //       RBAC --> Express
+    //       Express -->|JSON Data| DB
+    //       Express -->|Uploads| Assets
+
+    //       style Users fill:#1E1E1E,stroke:#C084FC,color:#fff
+    //       style API_Gateway fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //   `
+    // },
+    // {
+    //   title: "Nubia",
+    //   type: "Frontend UI/UX",
+    //   description: "A storytelling platform focused on immersive user experience.",
+    //   technical_details: [
+    //     "Implemented smooth scroll reveals and parallax effects.",
+    //     "Optimized asset loading for low-bandwidth connections.",
+    //     "Component-driven architecture for reusability."
+    //   ],
+    //   stack: ["React", "CSS3", "Netlify"],
+    //   link: "https://nubia-site.netlify.app",
+    //   repo: "https://github.com/kabasele243/nubia",
+    //   image: imgNubia,
+    //   diagram: `
+    //     graph LR
+    //       subgraph Client_Side
+    //         React[React App]
+    //         Motion[Framer Motion]
+    //       end
+    //       subgraph CDN
+    //         Netlify[Netlify Edge]
+    //       end
+
+    //       Netlify -->|Serve Static Assets| React
+    //       React -->|Animation Controls| Motion
+
+    //       style Client_Side fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //   `
+    // },
+    // {
+    //   title: "Adili",
+    //   type: "Real Estate Platform",
+    //   description: "A high-performance static site for real estate listings.",
+    //   technical_details: [
+    //     "Focus on SEO optimization and semantic HTML5.",
+    //     "Responsive design patterns for mobile-first users."
+    //   ],
+    //   stack: ["React", "SASS", "Responsive Design"],
+    //   link: "https://adili.netlify.app/",
+    //   repo: "https://github.com/kabasele243/adili",
+    //   image: imgAdili,
+    //   diagram: `
+    //     graph TD
+    //       User -->|Request| CDN
+    //       subgraph Host
+    //         CDN[Netlify/Vercel]
+    //       end
+    //       subgraph App
+    //         Static[Static Generator]
+    //         SASS[SASS Compiler]
+    //       end
+
+    //       Static --> CDN
+    //       SASS --> CDN
+
+    //       style App fill:#1E1E1E,stroke:#45A29E,color:#fff
+    //   `
+    // }
   ];
 
   return (
@@ -282,9 +325,15 @@ const CaseStudies = () => {
                 </div>
 
                 <div className="flex gap-6 pt-2">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-accent-cyan transition-colors border-b-2 border-transparent hover:border-accent-cyan pb-1 flex items-center gap-2">
-                    View Deployment <span className="text-lg">↗</span>
-                  </a>
+                  {project.link.startsWith('http') ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-accent-cyan transition-colors border-b-2 border-transparent hover:border-accent-cyan pb-1 flex items-center gap-2">
+                      View Deployment <span className="text-lg">↗</span>
+                    </a>
+                  ) : (
+                    <Link to={project.link} className="text-white font-bold hover:text-accent-cyan transition-colors border-b-2 border-transparent hover:border-accent-cyan pb-1 flex items-center gap-2">
+                      View Documentation <span className="text-lg">→</span>
+                    </Link>
+                  )}
                   <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2">
                     GitHub Repo
                   </a>

@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 // Import the new sections
 import Hero from '../components/sections/Hero';
-// import CaseStudies from '../components/sections/CaseStudies';
+import CaseStudies from '../components/sections/CaseStudies';
 import FeaturesTiles from '../components/sections/FeaturesTiles'; // Keeping for "Skills"
 import WorkHistory from '../components/sections/WorkHistory';
 
@@ -25,7 +25,7 @@ const Home = () => {
       </div>
 
       {/* 3. The Engineering Case Studies */}
-      {/* <CaseStudies /> */}
+      <CaseStudies />
       <WorkHistory />
 
       {/* 4. Simple Contact/Footer Callout */}

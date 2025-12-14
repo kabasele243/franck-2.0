@@ -9,6 +9,7 @@ import LayoutDefault from './layouts/LayoutDefault';
 import Home from './views/Home';
 import Project from './views/Project';
 import About from './views/About';
+import CaseStudyIdempotency from './views/CaseStudyIdempotency';
 
 // Initialize Google Analytics
 const GA_CODE = process.env.REACT_APP_GA_CODE;
@@ -48,6 +49,11 @@ const App = () => {
       <Route path="/about" element={
         <LayoutDefault>
           <About />
+        </LayoutDefault>
+      } />
+      <Route path="/case-studies/idempotent-api" element={
+        <LayoutDefault>
+          <CaseStudyIdempotency />
         </LayoutDefault>
       } />
     </Routes>
