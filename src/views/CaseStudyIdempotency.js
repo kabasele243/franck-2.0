@@ -31,8 +31,8 @@ const CaseStudyIdempotency = () => {
                     {/* Executive Summary */}
                     <section>
                         <h2 className="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Executive Summary</h2>
-                        <p className="mb-4">
-                            The Idempotent API is a production-grade Node.js/TypeScript application that demonstrates how to build resilient, fault-tolerant payment and order processing systems. It solves the critical problem of duplicate request handling in distributed systems, ensuring that network failures and retries don't result in duplicate charges or orders.
+                        <p className="mb-4 leading-relaxed">
+                            The Idempotent API is a <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">production-grade Node.js/TypeScript application</strong> that demonstrates how to build <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">resilient, fault-tolerant</strong> payment and order processing systems. It solves the critical problem of <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">duplicate request handling</strong> in <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">distributed systems</strong>, ensuring that network failures and retries don't result in <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">duplicate charges or orders</strong>.
                         </p>
                         <div className="bg-accent-teal/10 border-l-4 border-accent-teal p-4 rounded-r">
                             <p className="text-white font-semibold">Key Achievement</p>
@@ -74,7 +74,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                     <section>
                         <h2 className="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Solution Overview</h2>
                         <p className="mb-6">
-                            The solution implements <strong>idempotency</strong> - a mathematical property where an operation produces the same result no matter how many times it's executed.
+                            The solution implements <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">idempotency</strong> - a mathematical property where an operation produces the same result no matter how many times it's executed.
                         </p>
                         <p className="mb-6">
                             Core Concept: Clients include a unique <code>X-Idempotency-Key</code> header with each request. The server guarantees:
@@ -183,7 +183,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                         <div className="mb-12">
                             <h3 className="text-2xl font-bold text-accent-cyan mb-4">1. Idempotency Middleware ★</h3>
                             <p className="mb-4">
-                                The heart of the system. It uses a state machine model backed by detailed DynamoDB conditional writes to manage request states.
+                                The heart of the system. It uses a <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">state machine model</strong> backed by detailed <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">DynamoDB conditional writes</strong> to manage request states.
                             </p>
 
                             <div className="bg-[#1E1E1E] p-6 rounded-lg border border-slate-700 mb-6">
@@ -208,7 +208,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
 
                             <h4 className="text-white font-bold mb-2">Race Condition Handling</h4>
                             <p className="mb-4">
-                                Using DynamoDB's atomic <code>ConditionExpression</code>, we ensure that only one request can acquire the lock for a given key, even with millisecond-level concurrency.
+                                Using DynamoDB's <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">atomic <code>ConditionExpression</code></strong>, we ensure that only one request can acquire the lock for a given key, even with millisecond-level concurrency.
                             </p>
                             <pre className="bg-[#1E1E1E] p-4 rounded text-xs text-slate-300 overflow-x-auto">
                                 {`await dynamodb.put({
@@ -222,7 +222,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                         <div className="mb-12">
                             <h3 className="text-2xl font-bold text-accent-cyan mb-4">2. Circuit Breaker Pattern</h3>
                             <p className="mb-4">
-                                Prevents cascading failures when external services (like Payment Gateways) are down. Implemented using <code>Opossum</code>.
+                                Prevents cascading failures when external services (like Payment Gateways) are down. Implemented using <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded"><code>Opossum</code></strong>.
                             </p>
                             <ul className="list-disc list-inside mb-4 ml-4">
                                 <li><strong>CLOSED:</strong> Normal operation.</li>
@@ -251,25 +251,25 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                             <li className="flex items-start">
                                 <span className="text-green-500 mr-2">✓</span>
                                 <div>
-                                    <strong className="text-white">Helmet Headers:</strong> Protection against XSS, sniffing, clickjacking.
+                                    <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Helmet Headers:</strong> Protection against XSS, sniffing, clickjacking.
                                 </div>
                             </li>
                             <li className="flex items-start">
                                 <span className="text-green-500 mr-2">✓</span>
                                 <div>
-                                    <strong className="text-white">Rate Limiting:</strong> 100 requests / 15min per IP.
+                                    <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Rate Limiting:</strong> 100 requests / 15min per IP.
                                 </div>
                             </li>
                             <li className="flex items-start">
                                 <span className="text-green-500 mr-2">✓</span>
                                 <div>
-                                    <strong className="text-white">Zod Validation:</strong> Strict schema validation for all inputs.
+                                    <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Zod Validation:</strong> Strict schema validation for all inputs.
                                 </div>
                             </li>
                             <li className="flex items-start">
                                 <span className="text-green-500 mr-2">✓</span>
                                 <div>
-                                    <strong className="text-white">Docker Security:</strong> Non-root user execution, minimal alpine images.
+                                    <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Docker Security:</strong> Non-root user execution, minimal alpine images.
                                 </div>
                             </li>
                         </ul>
@@ -281,11 +281,11 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                         <div className="space-y-4">
                             <div>
                                 <h3 className="text-lg font-bold text-white">Database Optimization</h3>
-                                <p className="text-sm">Prisma connection pooling reuses DB connections to reduce overhead (~1ms vs ~100ms).</p>
+                                <p className="text-sm"><strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Prisma connection pooling</strong> reuses DB connections to reduce overhead (~1ms vs ~100ms).</p>
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold text-white">DynamoDB Efficiency</h3>
-                                <p className="text-sm">Single-digit millisecond latency for lock checks (1-5ms) vs relational DB transactions.</p>
+                                <p className="text-sm"><strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Single-digit millisecond latency</strong> for lock checks (1-5ms) vs relational DB transactions.</p>
                             </div>
                         </div>
                     </section>
