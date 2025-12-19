@@ -5,6 +5,7 @@ import Hero from '../components/sections/Hero';
 import CaseStudies from '../components/sections/CaseStudies';
 import FeaturesTiles from '../components/sections/FeaturesTiles'; // Keeping for "Skills"
 import WorkHistory from '../components/sections/WorkHistory';
+import PersonalProjects from '../components/sections/PersonalProjects';
 
 const Home = () => {
   return (
@@ -24,10 +25,13 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 3. The Engineering Case Studies */}
+
+
+      {/* 4. The Engineering Case Studies */}
       <CaseStudies />
       <WorkHistory />
-
+      {/* 3. Personal Projects Section */}
+      <PersonalProjects />
       {/* 4. Simple Contact/Footer Callout */}
       <div className="bg-bg-DEFAULT py-24 text-center">
         <h2 className="text-3xl font-bold text-white mb-6">Ready to build something great?</h2>
