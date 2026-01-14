@@ -27,7 +27,7 @@ const Hero = () => {
 
           <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-none">
             Building <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-purple">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-teal">
               Event-Driven
             </span> Systems.
           </h1>

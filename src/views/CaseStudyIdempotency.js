@@ -53,7 +53,7 @@ const CaseStudyIdempotency = () => {
                         </ul>
 
                         <h3 className="text-xl font-bold text-white mb-4">Real-World Scenario</h3>
-                        <div className="bg-[#1E1E1E] p-6 rounded-lg font-mono text-sm mb-6 border border-slate-700 overflow-x-auto">
+                        <div className="bg-bg-secondary p-6 rounded-lg font-mono text-sm mb-6 border border-slate-700 overflow-x-auto">
                             <pre>{`Client → [POST /orders amount=100] → Server
                                        ↓
                                    Process Payment ($100 charged)
@@ -87,7 +87,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
 
                         <h3 className="text-xl font-bold text-white mb-4">How It Works</h3>
                         <div className="space-y-6">
-                            <div className="bg-[#1E1E1E] p-6 rounded-lg border border-slate-700">
+                            <div className="bg-bg-secondary p-6 rounded-lg border border-slate-700">
                                 <h4 className="text-accent-cyan font-bold mb-2">Request 1 (Key: abc-123)</h4>
                                 <div className="font-mono text-sm opacity-90">
                                     Client → POST /orders + Key: abc-123 → Server<br />
@@ -104,7 +104,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                                 </div>
                             </div>
 
-                            <div className="bg-[#1E1E1E] p-6 rounded-lg border border-slate-700">
+                            <div className="bg-bg-secondary p-6 rounded-lg border border-slate-700">
                                 <h4 className="text-accent-cyan font-bold mb-2">Request 2 (Same Key: abc-123) - RETRY</h4>
                                 <div className="font-mono text-sm opacity-90">
                                     Client → POST /orders + Key: abc-123 → Server<br />
@@ -125,7 +125,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                         <h2 className="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Architecture</h2>
 
                         <h3 className="text-xl font-bold text-white mb-4">High-Level Architecture</h3>
-                        <div className="bg-[#1E1E1E] p-6 rounded-lg font-mono text-xs sm:text-sm mb-8 border border-slate-700 overflow-x-auto leading-relaxed whitespace-pre">
+                        <div className="bg-bg-secondary p-6 rounded-lg font-mono text-xs sm:text-sm mb-8 border border-slate-700 overflow-x-auto leading-relaxed whitespace-pre">
                             {`┌─────────────┐
 │   Client    │
 │ (Mobile/Web)│
@@ -186,21 +186,21 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                                 The heart of the system. It uses a <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">state machine model</strong> backed by detailed <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">DynamoDB conditional writes</strong> to manage request states.
                             </p>
 
-                            <div className="bg-[#1E1E1E] p-6 rounded-lg border border-slate-700 mb-6">
+                            <div className="bg-bg-secondary p-6 rounded-lg border border-slate-700 mb-6">
                                 <h4 className="text-white font-bold mb-4">State Machine Flow</h4>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                                     <div className="p-4 bg-slate-800 rounded border border-slate-700">
-                                        <div className="text-accent-teal font-bold">1. Key Not Found</div>
+                                        <div className="text-white font-bold">1. Key Not Found</div>
                                         <div className="text-xs mt-2">Check DynamoDB</div>
                                     </div>
                                     <div className="hidden md:block self-center">→</div>
                                     <div className="p-4 bg-slate-800 rounded border border-slate-700">
-                                        <div className="text-yellow-500 font-bold">2. Create Lock</div>
+                                        <div className="text-accent-cyan font-bold">2. Create Lock</div>
                                         <div className="text-xs mt-2">State: IN_PROGRESS</div>
                                     </div>
                                     <div className="hidden md:block self-center">→</div>
                                     <div className="p-4 bg-slate-800 rounded border border-slate-700">
-                                        <div className="text-green-500 font-bold">3. Store Result</div>
+                                        <div className="text-accent-teal font-bold">3. Store Result</div>
                                         <div className="text-xs mt-2">State: COMPLETED</div>
                                     </div>
                                 </div>
@@ -210,7 +210,7 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                             <p className="mb-4">
                                 Using DynamoDB's <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">atomic <code>ConditionExpression</code></strong>, we ensure that only one request can acquire the lock for a given key, even with millisecond-level concurrency.
                             </p>
-                            <pre className="bg-[#1E1E1E] p-4 rounded text-xs text-slate-300 overflow-x-auto">
+                            <pre className="bg-bg-secondary p-4 rounded text-xs text-slate-300 overflow-x-auto">
                                 {`await dynamodb.put({
   Item: { idempotencyKey, status: 'IN_PROGRESS' },
   ConditionExpression: 'attribute_not_exists(idempotencyKey)'
@@ -249,25 +249,25 @@ Client ← [TIMEOUT - No Response Received]`}</pre>
                         <h2 className="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Security Measures</h2>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <li className="flex items-start">
-                                <span className="text-green-500 mr-2">✓</span>
+                                <span className="text-accent-teal mr-2">✓</span>
                                 <div>
                                     <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Helmet Headers:</strong> Protection against XSS, sniffing, clickjacking.
                                 </div>
                             </li>
                             <li className="flex items-start">
-                                <span className="text-green-500 mr-2">✓</span>
+                                <span className="text-accent-teal mr-2">✓</span>
                                 <div>
                                     <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Rate Limiting:</strong> 100 requests / 15min per IP.
                                 </div>
                             </li>
                             <li className="flex items-start">
-                                <span className="text-green-500 mr-2">✓</span>
+                                <span className="text-accent-teal mr-2">✓</span>
                                 <div>
                                     <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Zod Validation:</strong> Strict schema validation for all inputs.
                                 </div>
                             </li>
                             <li className="flex items-start">
-                                <span className="text-green-500 mr-2">✓</span>
+                                <span className="text-accent-teal mr-2">✓</span>
                                 <div>
                                     <strong className="text-accent-cyan bg-accent-cyan/10 px-1 rounded">Docker Security:</strong> Non-root user execution, minimal alpine images.
                                 </div>
