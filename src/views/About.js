@@ -8,7 +8,7 @@ const About = () => {
                 {/* Header */}
                 <div className="mb-12">
                     <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 font-mono">
-                        <span className="text-accent-purple">const</span> <span className="text-accent-cyan">aboutMe</span> =
+                        <span className="text-accent-purple">const</span> <span className="text-accent">aboutMe</span> =
                     </h1>
                     <div className="h-px bg-slate-800 w-full"></div>
                 </div>
@@ -47,7 +47,7 @@ const About = () => {
 
                 {/* Call to Action */}
                 <div className="mt-12 text-center">
-                    <a href="mailto:kabasele467@gmail.com" className="inline-block border border-accent-cyan text-accent-cyan px-8 py-3 rounded font-mono hover:bg-accent-cyan/10 transition-colors">
+                    <a href="mailto:kabasele467@gmail.com" className="inline-block border border-accent text-accent px-8 py-3 rounded font-mono hover:bg-accent/10 transition-colors">
                         Let's Connect
                     </a>
                 </div>

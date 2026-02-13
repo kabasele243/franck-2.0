@@ -35,7 +35,7 @@ const Home = () => {
       {/* 4. Simple Contact/Footer Callout */}
       <div className="bg-bg-DEFAULT py-24 text-center">
         <h2 className="text-3xl font-bold text-white mb-6">Ready to build something great?</h2>
-        <a href="mailto:kabasele467@gmail.com" className="inline-block bg-transparent border-2 border-accent-cyan text-accent-cyan px-8 py-3 rounded font-mono font-bold hover:bg-accent-cyan hover:text-bg-DEFAULT transition-all duration-300">
+        <a href="mailto:kabasele467@gmail.com" className="inline-block bg-transparent border-2 border-accent text-accent px-8 py-3 rounded font-mono font-bold hover:bg-accent hover:text-bg-DEFAULT transition-all duration-300">
           Initialize Connection
         </a>
       </div>

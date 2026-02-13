@@ -6,19 +6,20 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-                mono: ['"Fira Code"', '"JetBrains Mono"', 'monospace'],
+                sans: ['"Instrument Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                mono: ['"IBM Plex Mono"', '"Fira Code"', '"JetBrains Mono"', 'monospace'],
             },
             colors: {
                 // FIX: Explicitly naming these keys matches the "bg-bg-DEFAULT" class used in the components
-                'bg-DEFAULT': '#0B0C10',
-                'bg-secondary': '#1F2833',
-                'bg-tertiary': '#C5C6C7',
+                'bg-DEFAULT': '#0c0c0c', // Almostnode Dark
+                'bg-secondary': '#111111',
+                'bg-tertiary': '#161616',
 
                 // Accents
                 accent: {
-                    cyan: '#66FCF1',
-                    teal: '#45A29E',
+                    DEFAULT: '#00ff88', // Almostnode Neon Green
+                    cyan: '#00ff88', // Map existing cyan to green for easy blending
+                    teal: '#00cc6a', // Darker green
                     purple: '#C084FC',
                 }
             },

@@ -29,10 +29,10 @@ const WorkHistory = () => {
                 <div className="space-y-12">
                     {jobs.map((job, i) => (
                         <div key={i} className="flex flex-col md:flex-row gap-4 md:gap-10 border-l-2 border-slate-700 pl-8 relative">
-                            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-teal shadow-[0_0_10px_#45A29E]"></div>
+                            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-teal shadow-[0_0_10px_#00ff88]"></div>
                             <div className="md:w-1/3">
                                 <h3 className="text-xl text-white font-bold">{job.company}</h3>
-                                <div className="text-accent-cyan font-mono text-sm mt-1">{job.date}</div>
+                                <div className="text-accent font-mono text-sm mt-1">{job.date}</div>
                             </div>
                             <div className="md:w-2/3">
                                 <div className="text-lg text-white font-semibold mb-2">{job.role}</div>

@@ -11,13 +11,13 @@ const Footer = ({ className, ...props }) => {
           </div>
 
           <div className="flex justify-center md:justify-end gap-6">
-            <a href="https://github.com/kabasele243" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
+            <a href="https://github.com/kabasele243" className="text-slate-400 hover:text-accent transition-colors text-sm font-mono">
               GitHub
             </a>
-            <a href="https://www.linkedin.com/in/franck-kabasele" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
+            <a href="https://www.linkedin.com/in/franck-kabasele" className="text-slate-400 hover:text-accent transition-colors text-sm font-mono">
               LinkedIn
             </a>
-            <a href="mailto:kabasele467@gmail.com" className="text-slate-400 hover:text-accent-cyan transition-colors text-sm font-mono">
+            <a href="mailto:kabasele467@gmail.com" className="text-slate-400 hover:text-accent transition-colors text-sm font-mono">
               Email
             </a>
           </div>

@@ -28,7 +28,7 @@ const PersonalProjects = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-accent-cyan font-mono text-xs tracking-wider uppercase border border-accent-cyan/30 px-3 py-1 rounded-full inline-block mb-3">
+            <span className="text-accent font-mono text-xs tracking-wider uppercase border border-accent/30 px-3 py-1 rounded-full inline-block mb-3">
               ~/side-projects
             </span>
             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">
@@ -52,7 +52,7 @@ const PersonalProjects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group bg-bg-secondary border border-slate-800/50 rounded-xl overflow-hidden hover:border-accent-cyan/50 transition-all duration-300"
+              className="group bg-bg-secondary border border-slate-800/50 rounded-xl overflow-hidden hover:border-accent/50 transition-all duration-300"
             >
               {/* Preview Image */}
               <div className="relative h-48 bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
@@ -65,7 +65,7 @@ const PersonalProjects = () => {
                     e.target.style.display = 'none';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/10 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
 
                 {/* Emoji overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -78,7 +78,7 @@ const PersonalProjects = () => {
               {/* Content */}
               <div className="p-6">
                 <div className="mb-3">
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent-cyan transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-accent-teal font-mono text-xs">
@@ -103,7 +103,7 @@ const PersonalProjects = () => {
                 </div>
 
                 {/* Arrow indicator */}
-                <div className="mt-4 flex items-center text-accent-cyan text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-4 flex items-center text-accent text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>View Project</span>
                   <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -112,7 +112,7 @@ const PersonalProjects = () => {
               </div>
 
               {/* Bottom accent line */}
-              <div className="h-1 bg-gradient-to-r from-transparent via-accent-cyan/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="h-1 bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </motion.a>
           ))}
         </div>

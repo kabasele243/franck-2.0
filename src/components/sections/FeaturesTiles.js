@@ -47,7 +47,7 @@ const FeaturesTiles = ({ className, ...props }) => {
       title: "DevOps & Observability",
       // Resume: Docker, K8s, CI/CD, DataDog, Splunk
       desc: "Streamlining deployments with Docker, Kubernetes, and GitHub Actions. Ensuring reliability via DataDog, CloudWatch, and NewRelic monitoring suites."
-    }
+    },
   ];
 
   return (
@@ -56,8 +56,8 @@ const FeaturesTiles = ({ className, ...props }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
           {tiles.map((tile, index) => (
-            <div key={index} className="bg-[#151719] p-6 rounded-xl border border-slate-800 hover:border-accent-teal/50 transition-colors duration-300 flex flex-col items-center text-center group">
-              <div className="mb-4 p-3 bg-bg-DEFAULT rounded-full border border-slate-700 group-hover:border-accent-cyan/30 transition-colors">
+            <div key={index} className="bg-[#151719] p-6 rounded-xl border border-slate-800 hover:border-accent/40 hover:shadow-[0_0_15px_rgba(0,255,136,0.1)] transition-all duration-300 flex flex-col items-center text-center group">
+              <div className="mb-4 p-3 bg-bg-DEFAULT rounded-full border border-slate-700 group-hover:border-accent/50 transition-colors">
                 <Image
                   src={tile.img}
                   alt={tile.title}

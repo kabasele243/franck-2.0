@@ -59,8 +59,8 @@ const CaseStudies = () => {
           Middleware -->|5. Update State| Dynamo
           Middleware -->|6. Safe Response| Client
           
-          style Client_Layer fill:#1E1E1E,stroke:#45A29E,color:#fff
-          style API_Gateway fill:#1E1E1E,stroke:#66FCF1,color:#fff
+          style Client_Layer fill:#1E1E1E,stroke:#00ff88,color:#fff
+          style API_Gateway fill:#1E1E1E,stroke:#00ff88,color:#fff
           style Persistence fill:#0B0C10,stroke:#C084FC,color:#fff
       `
     },
@@ -102,9 +102,9 @@ const CaseStudies = () => {
     //       Node -->|Read/Write| Mongo
     //       Node -->|Cache Hit/Miss| Redis
 
-    //       style Client fill:#1E1E1E,stroke:#45A29E,color:#fff
+    //       style Client fill:#1E1E1E,stroke:#00ff88,color:#fff
     //       style Load_Balancer fill:#1E1E1E,stroke:#C084FC,color:#fff
-    //       style API_Layer fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //       style API_Layer fill:#1E1E1E,stroke:#00ff88,color:#fff
     //       style Data_Layer fill:#0B0C10,stroke:#fff,color:#fff
     //   `
     // },
@@ -139,7 +139,7 @@ const CaseStudies = () => {
     //       React -->|Checkout| Stripe
     //       Stripe -->|Webhook| Firebase
 
-    //       style Frontend fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //       style Frontend fill:#1E1E1E,stroke:#00ff88,color:#fff
     //       style Backend_Services fill:#0B0C10,stroke:#C084FC,color:#fff
     //   `
     // },
@@ -179,7 +179,7 @@ const CaseStudies = () => {
     //       Express -->|Uploads| Assets
 
     //       style Users fill:#1E1E1E,stroke:#C084FC,color:#fff
-    //       style API_Gateway fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //       style API_Gateway fill:#1E1E1E,stroke:#00ff88,color:#fff
     //   `
     // },
     // {
@@ -208,7 +208,7 @@ const CaseStudies = () => {
     //       Netlify -->|Serve Static Assets| React
     //       React -->|Animation Controls| Motion
 
-    //       style Client_Side fill:#1E1E1E,stroke:#66FCF1,color:#fff
+    //       style Client_Side fill:#1E1E1E,stroke:#00ff88,color:#fff
     //   `
     // },
     // {
@@ -237,7 +237,7 @@ const CaseStudies = () => {
     //       Static --> CDN
     //       SASS --> CDN
 
-    //       style App fill:#1E1E1E,stroke:#45A29E,color:#fff
+    //       style App fill:#1E1E1E,stroke:#00ff88,color:#fff
     //   `
     // }
   ];
@@ -287,7 +287,7 @@ const CaseStudies = () => {
                   transition={{ duration: 0.6 }}
                   className="flex-1 w-full relative group"
                 >
-                  <div className="absolute -inset-2 bg-accent-cyan/10 rounded-xl blur-xl group-hover:bg-accent-cyan/20 transition-all duration-500"></div>
+                  <div className="absolute -inset-2 bg-accent/10 rounded-xl blur-xl group-hover:bg-accent/20 transition-all duration-500"></div>
                   <div className="relative bg-bg-DEFAULT rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
                     <div className="bg-[#1E1E1E] h-8 border-b border-slate-700 flex items-center px-4 gap-2">
                       <div className="w-2 h-2 rounded-full bg-slate-500"></div>
@@ -305,7 +305,7 @@ const CaseStudies = () => {
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 backdrop-blur-sm">
                       <button
                         onClick={() => openArchitecture(project)}
-                        className="bg-accent-cyan text-bg-DEFAULT px-6 py-3 rounded font-mono font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2"
+                        className="bg-accent text-bg-DEFAULT px-6 py-3 rounded font-mono font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
                         View Architecture
@@ -317,7 +317,7 @@ const CaseStudies = () => {
                 {/* Project Details */}
                 <div className="flex-1 space-y-6">
                   <div>
-                    <span className="text-accent-cyan font-mono text-xs tracking-wider uppercase border border-accent-cyan/30 px-2 py-1 rounded">
+                    <span className="text-accent font-mono text-xs tracking-wider uppercase border border-accent/30 px-2 py-1 rounded">
                       {project.type}
                     </span>
                     <h3 className="text-4xl font-bold mt-4 mb-2">{project.title}</h3>
@@ -346,11 +346,11 @@ const CaseStudies = () => {
 
                   <div className="flex gap-6 pt-2">
                     {project.link.startsWith('http') ? (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-accent-cyan transition-colors border-b-2 border-transparent hover:border-accent-cyan pb-1 flex items-center gap-2">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent pb-1 flex items-center gap-2">
                         View Deployment <span className="text-lg">↗</span>
                       </a>
                     ) : (
-                      <Link to={project.link} className="text-white font-bold hover:text-accent-cyan transition-colors border-b-2 border-transparent hover:border-accent-cyan pb-1 flex items-center gap-2">
+                      <Link to={project.link} className="text-white font-bold hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent pb-1 flex items-center gap-2">
                         View Documentation <span className="text-lg">→</span>
                       </Link>
                     )}
@@ -383,7 +383,7 @@ const CaseStudies = () => {
                     width={400}
                     height={300}
                   />
-                  <div className="absolute top-4 right-4 bg-bg-DEFAULT/90 backdrop-blur px-2 py-1 rounded text-xs font-mono text-accent-cyan border border-slate-700">
+                  <div className="absolute top-4 right-4 bg-bg-DEFAULT/90 backdrop-blur px-2 py-1 rounded text-xs font-mono text-accent border border-slate-700">
                     {project.type}
                   </div>
                 </div>
@@ -408,11 +408,11 @@ const CaseStudies = () => {
                     <div className="flex justify-between items-center">
                       {/* Using the same logic for links */}
                       {project.link.startsWith('http') ? (
-                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-accent-cyan text-sm font-bold hover:underline flex items-center gap-1">
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-accent text-sm font-bold hover:underline flex items-center gap-1">
                           Details ↗
                         </a>
                       ) : (
-                        <Link to={project.link} className="text-accent-cyan text-sm font-bold hover:underline flex items-center gap-1">
+                        <Link to={project.link} className="text-accent text-sm font-bold hover:underline flex items-center gap-1">
                           Read Case Study →
                         </Link>
                       )}

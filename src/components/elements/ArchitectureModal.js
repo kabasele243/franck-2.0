@@ -9,8 +9,8 @@ mermaid.initialize({
     themeVariables: {
         primaryColor: '#1E1E1E',
         primaryTextColor: '#C5C6C7',
-        primaryBorderColor: '#45A29E',
-        lineColor: '#66FCF1',
+        primaryBorderColor: '#00ff88',
+        lineColor: '#00ff88',
         secondaryColor: '#0B0C10',
         tertiaryColor: '#1F2833',
         fontFamily: '"Fira Code", monospace'
@@ -71,7 +71,7 @@ const ArchitectureModal = ({ isOpen, onClose, title, diagram }) => {
                             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700 bg-[#151719]">
                                 <div>
                                     <h3 className="text-xl font-bold text-white font-mono">System Architecture</h3>
-                                    <p className="text-sm text-accent-cyan">{title}</p>
+                                    <p className="text-sm text-accent">{title}</p>
                                 </div>
                                 <button
                                     onClick={onClose}
@@ -94,7 +94,7 @@ const ArchitectureModal = ({ isOpen, onClose, title, diagram }) => {
                             <div className="px-6 py-3 bg-[#151719] border-t border-slate-700 text-xs text-slate-500 font-mono flex gap-4 justify-center">
                                 <span className="flex items-center gap-2"><span className="w-2 h-2 bg-[#1E1E1E] border border-accent-teal block"></span> Service</span>
                                 <span className="flex items-center gap-2"><span className="w-2 h-2 bg-[#0B0C10] border border-white block"></span> Database</span>
-                                <span className="flex items-center gap-2"><span className="w-2 h-2 bg-accent-cyan block"></span> Data Flow</span>
+                                <span className="flex items-center gap-2"><span className="w-2 h-2 bg-accent block"></span> Data Flow</span>
                             </div>
 
                         </div>

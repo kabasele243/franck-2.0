@@ -32,7 +32,7 @@ const Header = ({ className, ...props }) => {
           {/* Logo / Brand */}
           <div className="flex-shrink-0 mr-4">
             <Link to="/" className="block group" onClick={closeMenu}>
-              <div className="font-mono text-xl font-bold text-white tracking-tighter group-hover:text-accent-cyan transition-colors">
+              <div className="font-mono text-xl font-bold text-white tracking-tighter group-hover:text-accent transition-colors">
                 &lt;Franck  Kabasele/&gt;
               </div>
             </Link>
@@ -42,13 +42,13 @@ const Header = ({ className, ...props }) => {
           <nav className="hidden md:flex flex-grow justify-end">
             <ul className="flex flex-wrap items-center justify-end gap-8 font-mono text-sm">
               <li>
-                <Link to="/" className="text-slate-300 hover:text-accent-cyan transition-colors">Home</Link>
+                <Link to="/" className="text-slate-300 hover:text-accent transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/project" className="text-slate-300 hover:text-accent-cyan transition-colors">Case Studies</Link>
+                <Link to="/project" className="text-slate-300 hover:text-accent transition-colors">Case Studies</Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-300 hover:text-accent-cyan transition-colors">About</Link>
+                <Link to="/about" className="text-slate-300 hover:text-accent transition-colors">About</Link>
               </li>
               <li>
                 <a href="https://github.com/kabasele243" target="_blank" rel="noopener noreferrer" className="text-accent-teal hover:text-white transition-colors">
@@ -82,9 +82,9 @@ const Header = ({ className, ...props }) => {
               </button>
               <nav>
                 <ul className="flex flex-col gap-8 text-center font-mono text-xl">
-                  <li><Link to="/" onClick={closeMenu} className="text-white hover:text-accent-cyan">Home</Link></li>
-                  <li><Link to="/project" onClick={closeMenu} className="text-white hover:text-accent-cyan">Case Studies</Link></li>
-                  <li><Link to="/about" onClick={closeMenu} className="text-white hover:text-accent-cyan">About</Link></li>
+                  <li><Link to="/" onClick={closeMenu} className="text-white hover:text-accent">Home</Link></li>
+                  <li><Link to="/project" onClick={closeMenu} className="text-white hover:text-accent">Case Studies</Link></li>
+                  <li><Link to="/about" onClick={closeMenu} className="text-white hover:text-accent">About</Link></li>
                 </ul>
               </nav>
             </div>

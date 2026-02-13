@@ -5,7 +5,7 @@ const InteractiveTerminal = () => {
     const [history, setHistory] = useState([
         {
             type: 'output',
-            content: <div className="text-slate-400 mb-2">Welcome to Franck's Terminal. Type <span className="text-accent-cyan">'help'</span> to see available commands.</div>
+            content: <div className="text-slate-400 mb-2">Welcome to Franck's Terminal. Type <span className="text-accent">'help'</span> to see available commands.</div>
         }
     ]);
     const inputRef = useRef(null);
@@ -28,11 +28,11 @@ const InteractiveTerminal = () => {
                 <div className="space-y-1 text-slate-300">
                     <div>Available commands:</div>
                     <div className="grid grid-cols-[100px_1fr] gap-2">
-                        <span className="text-accent-cyan">about</span> <span>Professional summary</span>
-                        <span className="text-accent-cyan">skills</span> <span>Tech stack & tools</span>
-                        <span className="text-accent-cyan">resume</span> <span>View/Download CV</span>
-                        <span className="text-accent-cyan">contact</span> <span>Contact details</span>
-                        <span className="text-accent-cyan">clear</span> <span>Clear terminal</span>
+                        <span className="text-accent">about</span> <span>Professional summary</span>
+                        <span className="text-accent">skills</span> <span>Tech stack & tools</span>
+                        <span className="text-accent">resume</span> <span>View/Download CV</span>
+                        <span className="text-accent">contact</span> <span>Contact details</span>
+                        <span className="text-accent">clear</span> <span>Clear terminal</span>
                     </div>
                 </div>
             )
@@ -62,8 +62,8 @@ const InteractiveTerminal = () => {
             desc: "How to reach me",
             output: (
                 <div>
-                    <div>Email: <a href="mailto:kabasele467@gmail.com" className="text-accent-cyan underline">kabasele467@gmail.com</a></div>
-                    <div>LinkedIn: <a href="https://linkedin.com/in/franck-kabasele" target="_blank" rel="noreferrer" className="text-accent-cyan underline">linkedin.com/in/franck-kabasele</a></div>
+                    <div>Email: <a href="mailto:kabasele467@gmail.com" className="text-accent underline">kabasele467@gmail.com</a></div>
+                    <div>LinkedIn: <a href="https://linkedin.com/in/franck-kabasele" target="_blank" rel="noreferrer" className="text-accent underline">linkedin.com/in/franck-kabasele</a></div>
                 </div>
             )
         }
@@ -118,9 +118,9 @@ const InteractiveTerminal = () => {
                         </pre>
                     </div>
                     <div className="space-y-1">
-                        <div><span className="text-accent-cyan font-bold">User:</span> Franck Kabasele</div>
-                        <div><span className="text-accent-cyan font-bold">Role:</span> Senior Software Engineer</div>
-                        <div><span className="text-accent-cyan font-bold">Stack:</span> Go, Node, AWS</div>
+                        <div><span className="text-accent font-bold">User:</span> Franck Kabasele</div>
+                        <div><span className="text-accent font-bold">Role:</span> Senior Software Engineer</div>
+                        <div><span className="text-accent font-bold">Stack:</span> Go, Node, AWS</div>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ const InteractiveTerminal = () => {
                     <div key={i}>
                         {line.type === 'command' ? (
                             <div className="flex items-center">
-                                <span className="text-accent-cyan mr-2">➜</span>
+                                <span className="text-accent mr-2">➜</span>
                                 <span className="text-blue-400 mr-2">~</span>
                                 <span className="text-white">{line.content}</span>
                             </div>
@@ -142,7 +142,7 @@ const InteractiveTerminal = () => {
             </div>
 
             <div className="flex items-center mt-2">
-                <span className="text-accent-cyan mr-2">➜</span>
+                <span className="text-accent mr-2">➜</span>
                 <span className="text-blue-400 mr-2">~</span>
                 <input
                     ref={inputRef}
