@@ -3,9 +3,15 @@ import React from 'react';
 const WorkHistory = () => {
     const jobs = [
         {
+            company: "Fanduel",
+            role: "Software Engineer",
+            date: "March 2026 - Present",
+            desc: "Fanduel is a leading sports betting and gaming company in North America."
+        },
+        {
             company: "Kard Financial",
-            role: "Software Engineer I",
-            date: "Oct 2022 - Present",
+            role: "Software Engineer II",
+            date: "Oct 2022 - March 2026",
             desc: "Kard is a rewards-as-a-service platform that provides loyalty programs to neo-banks."
         },
         {
